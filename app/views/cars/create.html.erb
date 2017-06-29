@@ -1,0 +1,45 @@
+<p><%= @car.show_car %></p>
+<p >Speed: <span id="speed"><%= @car.show_speed%></span>Km/h</p>
+
+<form action="accelerate" method="get">
+  <input type="submit" value="Accelerate" >
+</form>
+
+<form action="brake" method="get">
+  <input type="submit" value="Brake" >
+</form>
+
+<form action="lights" method="get">
+  <input type="submit" value="Lights" >
+</form>
+
+<p>
+  Lights : <%= @car.lights %>
+</p>
+
+<h3>Parking Brake: <%=params[:brake]%></h3>
+  <form action="parkingbrake" method="get">
+    <input id="on" name="brake" type="radio" value="true" > On <br>
+    <input id="off" name="brake" type="radio" value="false"> Off <br>
+    <input type="submit" value="Submit">
+  </form>
+
+
+  <script>
+    var speed = document.getElementById("speed")
+    if (+speed.innerHTML > 0) {
+      document.getElementById("on").setAttribute("disabled", '')
+      // document.getElementById("off").removeAttribute("checked");
+    }
+  </script>
+<!--
+<script>
+
+  if (document.getElementById("on").checked) {
+    document.getElementById("parking").innerHTML = "Parking Brake: On";
+  }
+  else if (document.getElementById("off").checked) {
+    document.getElementById("parking").innerHTML = "Parking Brake: Off";
+  }
+
+</script> -->
